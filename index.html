@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shortcuts</title>
+
 <style>
 body {
     background: #121212;
@@ -18,37 +19,126 @@ h1 {
     margin-bottom: 30px;
 }
 
+details {
+    background: #1b1b1b;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+summary {
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::before {
+    content: "▶";
+    margin-right: 10px;
+    display: inline-block;
+    transition: transform .2s;
+}
+
+details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.links {
+    padding: 0 15px 15px;
+}
+
 a {
     display: block;
-    background: #1f1f1f;
+    background: #242424;
     color: #4da3ff;
     text-decoration: none;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 10px;
+    padding: 12px;
+    margin-top: 8px;
+    border-radius: 8px;
+    transition: background .2s;
 }
 
 a:hover {
-    background: #2b2b2b;
+    background: #333;
 }
 </style>
 </head>
+
 <body>
 
 <h1>Shortcuts</h1>
 
-<a href="https://onedrive.live.com/login">OneDrive</a>
-<a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=9199bf20-a13f-4107-85dc-02114787ef48&scope=https%3A%2F%2Foutlook.office.com%2F.default%20openid%20profile%20offline_access&redirect_uri=https%3A%2F%2Foutlook.live.com%2Fmail%2F&client-request-id=aa70f4c4-c8cb-a45a-b61a-c59cd3fe4a83&response_mode=fragment&client_info=1&clidata=1&prompt=select_account&nonce=019f433d-55d9-74f3-80fc-1689e6176502&state=eyJpZCI6IjAxOWY0MzNkLTU1ZDktNzEwNS04NTVlLWIyODlhMmRmNTc3YyIsIm1ldGEiOnsiaW50ZXJhY3Rpb25UeXBlIjoicmVkaXJlY3QifX0%3D%7CaHR0cHM6Ly9vdXRsb29rLmxpdmUuY29tL21haWwvP2N1bHR1cmU9ZW4tZ2ImY291bnRyeT1nYg&claims=%7B%22access_token%22%3A%7B%22xms_cc%22%3A%7B%22values%22%3A%5B%22CP1%22%5D%7D%7D%7D&x-client-SKU=msal.js.browser&x-client-VER=5.8.0&response_type=code&code_challenge=jnNm4W1jXzPBJ37cqYIwtF-JJBVlPQCCRx9e4AmwXXs&code_challenge_method=S256&cobrandid=ab0455a0-8d03-46b9-b18b-df2f57b9e44c&fl=dob%2Cflname%2Cwld">Outlook</a>    
-<a href="https://www.amazon.co.uk">Amazon</a>
-<a href="https://os5.mycloud.com/cloud/shares">WD MyCloud</a>
-<a href="https://news.bbc.co.uk">BBC News</a>
-<a href="https://www.bbc.co.uk/weather">BBC Weather</a>
-<a href="https://github.com/login">GitHub</a>
-<a href="https://chatgpt.com/">ChatGPT</a>
-<a href="https://steamcommunity.com/login">Steam</a>
-<a href="https://www.instagram.com/">Instagram</a>
-<a href="https://www.ebay.co.uk/">eBay</a>
-<a href="https://uk.webuy.com/">CeX</a> 
+<details open>
+    <summary>Email</summary>
+    <div class="links">
+        <a href="https://mail.proton.me/u/4/inbox">Proton Mail</a>
+        <a href="https://calendar.proton.me/u/4/">Proton Calendar</a>
+        <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?...">Outlook</a>
+    </div>
+</details>
+
+<details>
+    <summary>Files</summary>
+    <div class="links">
+        <a href="https://drive.proton.me/u/4/...">Proton Drive</a>
+        <a href="https://onedrive.live.com/login">OneDrive</a>
+        <a href="https://os5.mycloud.com/cloud/shares">WD MyCloud</a>
+    </div>
+</details>
+
+<details>
+    <summary>News & Weather</summary>
+    <div class="links">
+        <a href="https://news.bbc.co.uk">BBC News</a>
+        <a href="https://www.bbc.co.uk/weather">BBC Weather</a>
+    </div>
+</details>
+
+<details>
+    <summary>Shopping</summary>
+    <div class="links">
+        <a href="https://www.amazon.co.uk">Amazon</a>
+        <a href="https://www.ebay.co.uk/">eBay</a>
+        <a href="https://uk.webuy.com/">CeX</a>
+    </div>
+</details>
+
+<details>
+    <summary>Gaming</summary>
+    <div class="links">
+        <a href="https://steamcommunity.com/login">Steam</a>
+    </div>
+</details>
+
+<details>
+    <summary>Social</summary>
+    <div class="links">
+        <a href="https://www.instagram.com/">Instagram</a>
+    </div>
+</details>
+
+<details>
+    <summary>Development</summary>
+    <div class="links">
+        <a href="https://github.com/login">GitHub</a>
+        <a href="https://chatgpt.com/">ChatGPT</a>
+    </div>
+</details>
+
+<details>
+    <summary>Utilities</summary>
+    <div class="links">
+        <a href="https://www.google.co.uk/maps">Google Maps</a>
+        <a href="https://booksy.com/en-gb">Booksy</a>
+    </div>
+</details>
 
 </body>
 </html>

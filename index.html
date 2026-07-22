@@ -6,31 +6,45 @@
 <title>Shortcuts</title>
 
 <style>
+:root {
+    --bg: #121212;
+    --panel: #1b1b1b;
+    --card: #242424;
+    --card-hover: #333;
+    --text: #fff;
+    --link: #4da3ff;
+    --radius: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background: #121212;
-    color: white;
-    font-family: Arial, sans-serif;
-    max-width: 700px;
     margin: 40px auto;
+    max-width: 700px;
     padding: 20px;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px Arial, sans-serif;
 }
 
 h1 {
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
 }
 
 details {
-    background: #1b1b1b;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
+    background: var(--panel);
+    border-radius: var(--radius);
     overflow: hidden;
 }
 
 summary {
-    padding: 15px;
-    font-size: 18px;
-    font-weight: bold;
     cursor: pointer;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
     user-select: none;
     list-style: none;
 }
@@ -41,8 +55,8 @@ summary::-webkit-details-marker {
 
 summary::before {
     content: "▶";
-    margin-right: 10px;
     display: inline-block;
+    width: 1.5rem;
     transition: transform .2s;
 }
 
@@ -50,23 +64,32 @@ details[open] summary::before {
     transform: rotate(90deg);
 }
 
-.links {
-    padding: 0 15px 15px;
+nav {
+    padding: 0 1rem 1rem;
 }
 
-a {
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li + li {
+    margin-top: .5rem;
+}
+
+nav a {
     display: block;
-    background: #242424;
-    color: #4da3ff;
+    padding: .8rem 1rem;
+    background: var(--card);
+    color: var(--link);
     text-decoration: none;
-    padding: 12px;
-    margin-top: 8px;
     border-radius: 8px;
     transition: background .2s;
 }
 
-a:hover {
-    background: #333;
+nav a:hover {
+    background: var(--card-hover);
 }
 </style>
 </head>
@@ -76,68 +99,84 @@ a:hover {
 <h1>Shortcuts</h1>
 
 <details open>
-    <summary>Email</summary>
-    <div class="links">
-        <a href="https://mail.proton.me/u/4/inbox">Proton Mail</a>
-        <a href="https://calendar.proton.me/u/4/">Proton Calendar</a>
-        <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?...">Outlook</a>
-    </div>
+    <summary>📧 Email</summary>
+    <nav>
+        <ul>
+            <li><a href="https://mail.proton.me/u/4/inbox" target="_blank" rel="noopener">Proton Mail</a></li>
+            <li><a href="https://calendar.proton.me/u/4/" target="_blank" rel="noopener">Proton Calendar</a></li>
+            <li><a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?..." target="_blank" rel="noopener">Outlook</a></li>
+        </ul>
+    </nav>
 </details>
 
 <details>
-    <summary>Files</summary>
-    <div class="links">
-        <a href="https://drive.proton.me/u/4/...">Proton Drive</a>
-        <a href="https://onedrive.live.com/login">OneDrive</a>
-        <a href="https://os5.mycloud.com/cloud/shares">WD MyCloud</a>
-    </div>
+    <summary>📁 Files</summary>
+    <nav>
+        <ul>
+            <li><a href="https://drive.proton.me/u/4/..." target="_blank" rel="noopener">Proton Drive</a></li>
+            <li><a href="https://onedrive.live.com/login" target="_blank" rel="noopener">OneDrive</a></li>
+            <li><a href="https://os5.mycloud.com/cloud/shares" target="_blank" rel="noopener">WD MyCloud</a></li>
+        </ul>
+    </nav>
 </details>
 
 <details>
-    <summary>News & Weather</summary>
-    <div class="links">
-        <a href="https://news.bbc.co.uk">BBC News</a>
-        <a href="https://www.bbc.co.uk/weather">BBC Weather</a>
-    </div>
+    <summary>📰 News & Weather</summary>
+    <nav>
+        <ul>
+            <li><a href="https://news.bbc.co.uk" target="_blank" rel="noopener">BBC News</a></li>
+            <li><a href="https://www.bbc.co.uk/weather" target="_blank" rel="noopener">BBC Weather</a></li>
+        </ul>
+    </nav>
 </details>
 
 <details>
-    <summary>Shopping</summary>
-    <div class="links">
-        <a href="https://www.amazon.co.uk">Amazon</a>
-        <a href="https://www.ebay.co.uk/">eBay</a>
-        <a href="https://uk.webuy.com/">CeX</a>
-    </div>
+    <summary>🛒 Shopping</summary>
+    <nav>
+        <ul>
+            <li><a href="https://www.amazon.co.uk" target="_blank" rel="noopener">Amazon</a></li>
+            <li><a href="https://www.ebay.co.uk/" target="_blank" rel="noopener">eBay</a></li>
+            <li><a href="https://uk.webuy.com/" target="_blank" rel="noopener">CeX</a></li>
+            <li><a href="https://booksy.com/en-gb" target="_blank" rel="noopener">Booksy</a></li>
+        </ul>
+    </nav>
 </details>
 
 <details>
-    <summary>Gaming</summary>
-    <div class="links">
-        <a href="https://steamcommunity.com/login">Steam</a>
-    </div>
+    <summary>🎮 Gaming</summary>
+    <nav>
+        <ul>
+            <li><a href="https://steamcommunity.com/login" target="_blank" rel="noopener">Steam</a></li>
+        </ul>
+    </nav>
 </details>
 
 <details>
-    <summary>Social</summary>
-    <div class="links">
-        <a href="https://www.instagram.com/">Instagram</a>
-    </div>
+    <summary>💬 Social Media</summary>
+    <nav>
+        <ul>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+    </nav>
 </details>
 
 <details>
-    <summary>Development</summary>
-    <div class="links">
-        <a href="https://github.com/login">GitHub</a>
-        <a href="https://chatgpt.com/">ChatGPT</a>
-    </div>
+    <summary>🛠 Utilities</summary>
+    <nav>
+        <ul>
+            <li><a href="https://github.com/login" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a></li>
+        </ul>
+    </nav>
 </details>
 
 <details>
-    <summary>Utilities</summary>
-    <div class="links">
-        <a href="https://www.google.co.uk/maps">Google Maps</a>
-        <a href="https://booksy.com/en-gb">Booksy</a>
-    </div>
+    <summary>🗺 Maps</summary>
+    <nav>
+        <ul>
+            <li><a href="https://www.google.co.uk/maps" target="_blank" rel="noopener">Google Maps</a></li>
+        </ul>
+    </nav>
 </details>
 
 </body>

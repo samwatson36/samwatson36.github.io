@@ -78,9 +78,11 @@ nav ul {
 nav li + li {
     margin-top: .5rem;
 }
-
+    
 nav a {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 12px;
     padding: .8rem 1rem;
     background: var(--card);
     color: var(--link);
@@ -92,6 +94,14 @@ nav a {
 nav a:hover {
     background: var(--card-hover);
 }
+
+.favicon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+
 </style>
 </head>
 
@@ -116,7 +126,6 @@ nav a:hover {
             <li><a href="https://calendar.proton.me/u/4/" target="_blank" rel="noopener">Proton Calendar</a></li>
             <li><a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=9199bf20-a13f-4107-85dc-02114787ef48&scope=https%3A%2F%2Foutlook.office.com%2F.default%20openid%20profile%20offline_access&redirect_uri=https%3A%2F%2Foutlook.office365.com%2Fmail%2F&client-request-id=4ec485ad-39e9-d587-5fb8-4163007cc914&response_mode=fragment&client_info=1&clidata=1&prompt=select_account&nonce=019f8f0b-32bf-79fd-a836-54b260568aea&state=eyJpZCI6IjAxOWY4ZjBiLTMyYmYtNzM2ZC05ZDMyLTc0NDhhNTUwZjljMCIsIm1ldGEiOnsiaW50ZXJhY3Rpb25UeXBlIjoicmVkaXJlY3QifX0%3D%7CaHR0cHM6Ly9vdXRsb29rLm9mZmljZTM2NS5jb20vbWFpbC92aWV3Lmh0bWw_Ym89MQ&claims=%7B%22access_token%22%3A%7B%22xms_cc%22%3A%7B%22values%22%3A%5B%22CP1%22%5D%7D%7D%7D&x-client-SKU=msal.js.browser&x-client-VER=5.12.0&response_type=code&code_challenge=YB66-SXnyTSNxW9rGRNZqstD8gpUdOSkEv8XA50VqZE&code_challenge_method=S256" target="_blank" rel="noopener">Outlook</a></li>
             <li><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank" rel="noopener">Gmail</a></li>
-    </a>
         </ul>
     </nav>
 </details>
@@ -125,7 +134,7 @@ nav a:hover {
     <summary>📁 Files</summary>
     <nav>
         <ul>
-            <li><a href="https://drive.proton.me/u/4/..." target="_blank" rel="noopener">Proton Drive</a></li>
+            <li><a href="https://drive.proton.me/" target="_blank" rel="noopener">Proton Drive</a></li>
             <li><a href="https://onedrive.live.com/login" target="_blank" rel="noopener">OneDrive</a></li>
             <li><a href="https://os5.mycloud.com/cloud/shares" target="_blank" rel="noopener">WD MyCloud</a></li>
         </ul>
@@ -263,6 +272,26 @@ nav a:hover {
         </ul>
     </nav>
 </details>
+
+
+<script>
+document.querySelectorAll("nav a").forEach(link => {
+    try {
+        const url = new URL(link.href);
+
+        const img = document.createElement("img");
+        img.className = "favicon";
+        img.alt = "";
+        img.loading = "lazy";
+        img.src = `https://www.google.com/s2/favicons?domain=${url.hostname}&sz=64`;
+
+        link.prepend(img);
+    } catch (e) {
+        // Ignore invalid URLs
+    }
+});
+</script>
+    
     
 </body>
 </html>
